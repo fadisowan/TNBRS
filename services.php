@@ -139,6 +139,36 @@ function resetTnxPwd ($TNXUserPwd){
 function ValidateLoginPwd ($ValidateLoginPwd)
 {
 
+    require  'config/dbc.php';
+
+    $sqlCHK = "SELECT * FROM  radius.radcheck WHERE username='$usernameCreate'";
+    $rs = mysqli_query($conn,$sqlCHK);
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+
+    if($data[0] > 1) {
+        $txnStatus ="user already exists";
+        return $txnStatus;
+    }  else {
+        $tnxSuffix= $GLOBALS['tnx_'];
+
+        $pwd=genPass();
+        $tnx_pwd=genPass();
+        $sql = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$usernameCreate', 'Cleartext-Password', ':=','$pwd')";
+        $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$tnxSuffix$usernameCreate', 'Cleartext-Password', ':=','$tnx_pwd')";
+        //if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
+
+            $txnStatus= 'create';
+            return $txnStatus;
+        } else {
+
+            $txnStatus= "user can't created";
+            return $txnStatus;
+        }
+        $conn->close();
+    }
+    
+
 }
 function ValidateTnxPwd ($ValidateTnxPwd)
 {

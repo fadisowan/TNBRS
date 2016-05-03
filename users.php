@@ -10,6 +10,7 @@ require_once 'config/parm.php';
 isset($_GET['username']) ? $userNamePost = trim($_GET['username']) : $username = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
 isset($_GET['action']) ? $action =  $_GET['action'] : $action = "";
+
 if(isset($userNamePost) && isset($action) ){
     if(!empty($userNamePost)&&!empty($action)){
 //-------------------------------------------------------------------------
