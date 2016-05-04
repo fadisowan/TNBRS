@@ -136,7 +136,7 @@ function resetTnxPwd ($TNXUserPwd){
 
 ///------------ Reset Transaction Password User Function------------////
 ///------------ Reset Transaction Password User Function------------////
-function ValidateLoginPwd ($ValidateLoginPwd)
+function ValidateLoginPwd ($ValidateLoginUSR,$ValidateLoginPWD)
 {
 
     require  'config/dbc.php';

@@ -11,26 +11,25 @@ isset($_GET['username']) ? $userNamePost = trim($_GET['username']) : $username =
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
 isset($_GET['password']) ? $password =  $_GET['password'] : $password = "";
 
-if(isset($userNamePost) && isset($password)){
+if(isset($userNamePost) && isset($password) ){
     if(!empty($userNamePost)&&!empty($password)){
 //-------------------------------------------------------------------------
         require_once  ('lib/nusoap.php');
         $client=new nusoap_client($GLOBALS['WSDL']);
-      
-//-------------------------------------------------------------------------rror = $client->getError();
+        $error = $client->getError();
         if ($error) {
             echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
-
-
-                $result=$client->call("CreateUser", array(
-                    "username"=>"$userNamePost",
-                    "usernamePwd"=>"$password"
-                ));
-                
         }
+//-------------------------------------------------------------------------
+
+          $result=$client->call("ValidateLoginPwd", array(
+              "ValidateLoginUSR"=>"$userNamePost",
+              "ValidateLoginPWD"=>"$password"
+          ));
+
 
     }else{
-        echo "<pre>username can't be null or empty!</pre>";
+        echo "<pre>username or password can't be null or empty!</pre>";
     }
 //------------- IF FALUT-------------------------------------------------
     $par='01';
