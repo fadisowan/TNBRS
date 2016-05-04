@@ -5,7 +5,7 @@
  * Date: 4/10/2016
  * Time: 2:00 PM
  */
-$GLOBALS['WSDL']="http://192.168.160.128/fadi2/services.php?wsdl";
+$GLOBALS['WSDL']="http://192.168.160.132/fadi2/services.php?wsdl";
  $GLOBALS['tnx_']='tnx_';
 
 function genPass($len = 8) {

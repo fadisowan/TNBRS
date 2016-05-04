@@ -48,11 +48,15 @@ function SuspendUser($suspendName){
     $sql = "SELECT * FROM radius.radusergroup    WHERE Username = '$suspendName'";
     //= "SELECT * FROM radius.radusergroup  where username = '$suspendName'";
     $rs = mysqli_query($conn, $sql);
+    $tnxSuffix= $GLOBALS['tnx_'];
+    $fUsername=$tnxSuffix.$suspendName;
 if ($dataRadcheck[0] >1){
         if(mysqli_num_rows($rs)==0  ) {
         $sql = "INSERT INTO radius.radusergroup (username,groupname, priority) VALUES ('$suspendName', 'daloRADIUS-Disabled-Users', 0)";
-        //if ($conn->query($sql) === TRUE) {
-        if ($conn->query($sql) === TRUE ) {
+             $sql2= "INSERT INTO radius.radusergroup (username,groupname, priority) VALUES ('$fUsername', 'daloRADIUS-Disabled-Users', 0)";
+
+            //if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE ) {
 
             $txnStatus= 'suspend';
             return $txnStatus;
@@ -140,38 +144,35 @@ function ValidateLoginPwd ($ValidateLoginUSR,$ValidateLoginPWD)
 {
 
     require  'config/dbc.php';
+    //$sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
+    $sqlSUSPEND = "SELECT
+  radusergroup.username,
+  radusergroup.groupname
+FROM radusergroup
+WHERE radusergroup.username = '$ValidateLoginUSR'
+AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
+       ";
+    $rsSUSPEND = mysqli_query($conn,$sqlSUSPEND);
+   // $dataSUSPEND = mysqli_fetch_array($rsSUSPEND, MYSQLI_NUM);
+    if(mysqli_num_rows($rsSUSPEND)==0) {
+ 
+        $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
 
-    $sqlCHK = "SELECT * FROM  radius.radcheck WHERE username='$usernameCreate'";
-    $rs = mysqli_query($conn,$sqlCHK);
-    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-
-    if($data[0] > 1) {
-        $txnStatus ="user already exists";
-        return $txnStatus;
-    }  else {
-        $tnxSuffix= $GLOBALS['tnx_'];
-
-        $pwd=genPass();
-        $tnx_pwd=genPass();
-        $sql = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$usernameCreate', 'Cleartext-Password', ':=','$pwd')";
-        $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$tnxSuffix$usernameCreate', 'Cleartext-Password', ':=','$tnx_pwd')";
-        //if ($conn->query($sql) === TRUE) {
-        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
-
-            $txnStatus= 'create';
+        $rs = mysqli_query($conn,$sqlLogin);
+        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+        if($data[0] > 1) {
+            $txnStatus ="user successfully login";
             return $txnStatus;
-        } else {
-
-            $txnStatus= "user can't created";
+        }  else {
+            $txnStatus ="username or password invalid, try again";
             return $txnStatus;
         }
-        $conn->close();
-    }
-    
 
-}
-function ValidateTnxPwd ($ValidateTnxPwd)
-{
+    }else{
+        $txnStatus ="user suspended you can't login";
+
+        return $txnStatus;
+    }
 
 }
 
@@ -184,7 +185,6 @@ $server->register('SuspendUser',array("suspendName" => "xsd:string"),array("retu
 $server->register('resetLoginPwd',array("LoginPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#resetLoginPwd");
 $server->register('resetTnxPwd',array("TNXUserPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#resetTnxPwd");
 $server->register('ValidateLoginPwd',array("ValidateLoginPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#ValidateLoginPwd");
-$server->register('ValidateTnxPwd',array("ValidateTnxPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#ValidateTnxPwd");
 
 
 

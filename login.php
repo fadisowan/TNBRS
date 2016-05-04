@@ -9,10 +9,10 @@
 require_once 'config/parm.php';
 isset($_GET['username']) ? $userNamePost = trim($_GET['username']) : $username = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
-isset($_GET['password']) ? $password =  $_GET['password'] : $password = "";
+isset($_GET['password']) ? $passwordPOST =  $_GET['password'] : $password = "";
 
-if(isset($userNamePost) && isset($password) ){
-    if(!empty($userNamePost)&&!empty($password)){
+if(isset($userNamePost) && isset($passwordPOST) ){
+    if(!empty($userNamePost)&&!empty($passwordPOST)){
 //-------------------------------------------------------------------------
         require_once  ('lib/nusoap.php');
         $client=new nusoap_client($GLOBALS['WSDL']);
@@ -24,7 +24,7 @@ if(isset($userNamePost) && isset($password) ){
 
           $result=$client->call("ValidateLoginPwd", array(
               "ValidateLoginUSR"=>"$userNamePost",
-              "ValidateLoginPWD"=>"$password"
+              "ValidateLoginPWD"=>"$passwordPOST"
           ));
 
 
@@ -42,16 +42,7 @@ if(isset($userNamePost) && isset($password) ){
         $error = $client->getError();
         if ($error) {
             echo "<h2>Error</h2><pre>" . $error . "</pre>";
-        }
-        elseif($result=='create') {
-            echo "<pre>New User Created : $userNamePost </pre>";
-        } elseif($result=='suspend') {
-            echo "<pre>User suspend : $userNamePost  </pre>";
-        } elseif($result=='resetLoginPwd') {
-            echo "<pre>Login Password reset successfully : $userNamePost </pre>";
-        } elseif($result=='resetTnxPwd') {
-            echo "<pre>transaction Password reset successfully : $userNamePost </pre>";
-
+            
 
         } else{
             echo "<pre>$result $userNamePost   </pre>";
