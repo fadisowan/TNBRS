@@ -137,7 +137,7 @@ function resetTnxPwd ($TNXUserPwd){
     $conn->close();
 }
 
-
+//web services
 ///------------ Reset Transaction Password User Function------------////
 ///------------ Reset Transaction Password User Function------------////
 function ValidateLoginPwd ($ValidateLoginUSR,$ValidateLoginPWD)

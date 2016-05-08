@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//action
 //------------- Main IF POST-------------------------------------------------
 require_once 'config/parm.php';
 isset($_GET['username']) ? $userNamePost = trim($_GET['username']) : $username = "";

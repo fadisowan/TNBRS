@@ -7,6 +7,7 @@
  */
 //------------- Main IF POST-------------------------------------------------
 require_once 'config/parm.php';
+//git username /password
 isset($_GET['username']) ? $userNamePost = trim($_GET['username']) : $username = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
 isset($_GET['password']) ? $passwordPOST =  $_GET['password'] : $password = "";
