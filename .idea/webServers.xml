@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="306c3f59-3621-471a-9260-9ee745da9d14" name="RADUIS" url="http://192.168.160.132/fadi2">
+        <fileTransfer host="192.168.160.132" port="22" rootFolder="/var/www/html/daloradius-0.9-9/fadi2" accessType="SFTP" password="dfccdf9adf9bdf98df99df9edf9fdf9c" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
