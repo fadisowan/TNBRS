@@ -2,9 +2,9 @@
 
 require_once  'lib/nusoap.php';
 require_once 'config/parm.php';
- 
+
 $username = trim($_REQUEST['username']);
-///------------ add New User Function------------////
+
 function CreateUser($usernameCreate){
     require  'config/dbc.php';
 
@@ -36,8 +36,6 @@ $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES
 }
 
 }
-///------------ End add New User Function------------////
-///------------ Suspend User Function------------////
 
 function SuspendUser($suspendName){
 
@@ -84,9 +82,6 @@ if ($dataRadcheck[0] >1){
 
 }
 
-///------------ End Suspend User Function------------////
-
-///------------ Reset Login Password User Function------------////
 function resetLoginPwd ($LoginUserPwd){
     require  'config/dbc.php';
 
@@ -111,8 +106,6 @@ function resetLoginPwd ($LoginUserPwd){
     $conn->close();
 }
 
-///------------ end Reset Login Password User Function------------////
-///------------ Reset Transaction Password User Function------------////
 function resetTnxPwd ($TNXUserPwd){
     require  'config/dbc.php';
     $pwd=genPass();
@@ -137,9 +130,6 @@ function resetTnxPwd ($TNXUserPwd){
     $conn->close();
 }
 
-//web services
-///------------ Reset Transaction Password User Function------------////
-///------------ Reset Transaction Password User Function------------////
 function ValidateLoginPwd ($ValidateLoginUSR,$ValidateLoginPWD)
 {
 
@@ -155,7 +145,7 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
     $rsSUSPEND = mysqli_query($conn,$sqlSUSPEND);
    // $dataSUSPEND = mysqli_fetch_array($rsSUSPEND, MYSQLI_NUM);
     if(mysqli_num_rows($rsSUSPEND)==0) {
- 
+
         $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
 
         $rs = mysqli_query($conn,$sqlLogin);
@@ -185,7 +175,8 @@ $server->register('SuspendUser',array("suspendName" => "xsd:string"),array("retu
 $server->register('resetLoginPwd',array("LoginPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#resetLoginPwd");
 $server->register('resetTnxPwd',array("TNXUserPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#resetTnxPwd");
 $server->register('ValidateLoginPwd',array("ValidateLoginPwd" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#ValidateLoginPwd");
-
+$server->register('ChangePassword',array("ChangePassword" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#ChangePassword");
+$server->register('ForgetPassword',array("ForgetPassword" => "xsd:string"),array("return" => "xsd:string"),"urn:Radius","urn:Radius#ForgetPassword");
 
 
 

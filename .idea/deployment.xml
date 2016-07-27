@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="RADUIS">
+  <component name="PublishConfigData" serverName="RADUIS" filePermissions="420" folderPermissions="493">
     <serverData>
       <paths name="RADUIS">
         <serverdata>
           <mappings>
-            <mapping deploy="/var/www/html/daloradius-0.9-9/fadi2" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/var/www/html/daloradius-0.9-9/fadi2/" local="$PROJECT_DIR$" web="fadi2/" />
           </mappings>
         </serverdata>
       </paths>
