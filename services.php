@@ -151,7 +151,19 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
         $rs = mysqli_query($conn,$sqlLogin);
         $data = mysqli_fetch_array($rs, MYSQLI_NUM);
         if($data[0] > 1) {
-            $txnStatus ="user successfully login";
+
+
+            ///check is first time login
+            if (isFirstTime($ValidateLoginUSR)==1){
+
+
+            }else{
+                $txnStatus ="not user successfully login";
+
+            }
+
+
+
             return $txnStatus;
         }  else {
             $txnStatus ="username or password invalid, try again";
@@ -167,6 +179,31 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
 }
 
 
+function isFirstTime($username){
+    require  'config/dbc.php';
+
+
+    $Sql_isFirstTime = "SELECT username,firstLogin FROM radcheck where username='$username'";
+
+
+    $rs = mysqli_query($conn, $Sql_isFirstTime);
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+    if ($data[1] == 1) {
+        $rslt=true;
+    } else {
+         $rslt= false;
+    }
+    return $rslt;
+}
+
+
+
+function ChangePassword($username,$oldpassword,$newpassword){
+
+}
+function ForgetPassword (){
+
+}
 
 $server = new soap_server();
 $server->configureWSDL("TNB Bank Web Serives","urn:Radius");

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/services.php" description="$server = new soap_server();" line="207" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="347f5466-b1ac-4eab-a87e-ec7e864bac44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/upload.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testuplad.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/changepwd.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cron/users.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/dbc.php" afterPath="$PROJECT_DIR$/config/dbc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cron/cron.php" afterPath="$PROJECT_DIR$/cron/cron.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services.php" afterPath="$PROJECT_DIR$/services.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users.php" afterPath="$PROJECT_DIR$/users.php" />
     </list>
     <ignored path="RemoteServices.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,6 +45,10 @@
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - radius@192.168.160.132" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -53,54 +57,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="352">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
               <folding>
-                <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-                <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-                <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
+                <element signature="e#6#1208#0#PHP" expanded="true" />
+                <marker date="1469610399789" expanded="true" signature="247:428" ph="SELECT radus... radusergroup" />
+                <marker date="1469610399789" expanded="true" signature="618:717" ph="SELECT * FRO... radcheck" />
+                <marker date="1469610399789" expanded="true" signature="1301:1368" ph="SELECT usern... radcheck" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services.php">
+      <file leaf-file-name="cron.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cron/cron.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding>
-                <element signature="n#CreateUser#0;n#!!top" expanded="false" />
-                <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
-                <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
-                <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-                <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-                <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-                <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-                <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-                <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-                <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-                <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-                <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-                <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-                <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-                <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-                <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-                <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-                <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
-              </folding>
+            <state relative-caret-position="256">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="radius.radcheck" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="192">
+              <caret line="10" column="53" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -109,8 +110,18 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1600">
-              <caret line="54" column="0" selection-start-line="31" selection-start-column="10" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -145,16 +156,19 @@
         <option value="$PROJECT_DIR$/suspend.php" />
         <option value="$PROJECT_DIR$/config/index.html" />
         <option value="$PROJECT_DIR$/config/parm.php" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/users.php" />
         <option value="$PROJECT_DIR$/config/upload.txt" />
         <option value="$PROJECT_DIR$/testuplad.php" />
         <option value="$PROJECT_DIR$/config/dbc.php" />
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/53cc679d-8f39-4783-b1ab-378c2137c0fc/console.sql" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/users.php" />
+        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/changepwd.php" />
         <option value="$PROJECT_DIR$/services.php" />
+        <option value="$PROJECT_DIR$/cron/users.txt" />
+        <option value="$PROJECT_DIR$/cron/cron.php" />
       </list>
     </option>
   </component>
@@ -173,7 +187,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1378" />
     <option name="height" value="735" />
   </component>
@@ -202,8 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -232,12 +244,28 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="cron" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TNBRS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TNBRS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,7 +379,9 @@
       <workItem from="1469450364387" duration="180000" />
       <workItem from="1469470246081" duration="7000" />
       <workItem from="1469524812032" duration="1587000" />
-      <workItem from="1469603233682" duration="376000" />
+      <workItem from="1469603233682" duration="480000" />
+      <workItem from="1469606066922" duration="3238000" />
+      <workItem from="1469620448373" duration="2267000" />
     </task>
     <task id="LOCAL-00001" summary="We have new ver">
       <created>1462309976863</created>
@@ -385,7 +415,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98639000" />
+    <option name="totallyTimeSpent" value="104248000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -397,18 +427,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="735" extended-state="0" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20182094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20789075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34697217" sideWeight="0.3494705" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23444612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23444612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -418,12 +450,10 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28805238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41734862" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2740864" sideWeight="0.6505295" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -474,250 +504,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6112">
-          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
-            <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
-            <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
-            <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="54" column="0" selection-start-line="31" selection-start-column="10" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4640">
-          <caret line="145" column="19" selection-start-line="142" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
-          <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
-            <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
-            <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
-            <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/53cc679d-8f39-4783-b1ab-378c2137c0fc/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="54" selection-start-line="0" selection-start-column="54" selection-end-line="0" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4640">
-          <caret line="145" column="19" selection-start-line="142" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
-          <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
-            <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
-            <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
-            <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/53cc679d-8f39-4783-b1ab-378c2137c0fc/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="54" selection-start-line="0" selection-start-column="54" selection-end-line="0" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4640">
-          <caret line="145" column="19" selection-start-line="142" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
-          <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
-            <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
-            <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
-            <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/53cc679d-8f39-4783-b1ab-378c2137c0fc/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="54" selection-start-line="0" selection-start-column="54" selection-end-line="0" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4512">
           <caret line="141" column="6" selection-start-line="141" selection-start-column="6" selection-end-line="141" selection-end-column="6" />
           <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
             <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
             <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
             <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <element signature="n#ChangePassword#0;n#!!top" expanded="false" />
+            <element signature="n#ForgetPassword#0;n#!!top" expanded="false" />
+            <marker date="1469689271383" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="5165:5232" ph="SELECT usern... radcheck" />
           </folding>
         </state>
       </provider>
@@ -734,9 +544,10 @@
         <state relative-caret-position="416">
           <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
           <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
+            <element signature="e#6#1208#0#PHP" expanded="true" />
+            <marker date="1469610399789" expanded="true" signature="247:428" ph="SELECT radus... radusergroup" />
+            <marker date="1469610399789" expanded="true" signature="618:717" ph="SELECT * FRO... radcheck" />
+            <marker date="1469610399789" expanded="true" signature="1301:1368" ph="SELECT usern... radcheck" />
           </folding>
         </state>
       </provider>
@@ -760,24 +571,25 @@
         <state relative-caret-position="3525">
           <caret line="141" column="6" selection-start-line="141" selection-start-column="6" selection-end-line="141" selection-end-column="6" />
           <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
             <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
             <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
             <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <element signature="n#ChangePassword#0;n#!!top" expanded="false" />
+            <element signature="n#ForgetPassword#0;n#!!top" expanded="false" />
+            <marker date="1469689271383" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="5165:5232" ph="SELECT usern... radcheck" />
           </folding>
         </state>
       </provider>
@@ -794,9 +606,10 @@
         <state relative-caret-position="325">
           <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
           <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
+            <element signature="e#6#1208#0#PHP" expanded="true" />
+            <marker date="1469610399789" expanded="true" signature="247:428" ph="SELECT radus... radusergroup" />
+            <marker date="1469610399789" expanded="true" signature="618:717" ph="SELECT * FRO... radcheck" />
+            <marker date="1469610399789" expanded="true" signature="1301:1368" ph="SELECT usern... radcheck" />
           </folding>
         </state>
       </provider>
@@ -820,24 +633,25 @@
         <state relative-caret-position="3950">
           <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
           <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
             <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
             <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
             <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <element signature="n#ChangePassword#0;n#!!top" expanded="false" />
+            <element signature="n#ForgetPassword#0;n#!!top" expanded="false" />
+            <marker date="1469689271383" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="5165:5232" ph="SELECT usern... radcheck" />
           </folding>
         </state>
       </provider>
@@ -861,43 +675,30 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
             <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
             <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
             <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <element signature="n#ChangePassword#0;n#!!top" expanded="false" />
+            <element signature="n#ForgetPassword#0;n#!!top" expanded="false" />
+            <marker date="1469689271383" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="5165:5232" ph="SELECT usern... radcheck" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testuplad.php" />
-    <entry file="file://$PROJECT_DIR$/config/parm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.realms">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -907,13 +708,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cron/cron.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -945,13 +739,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fst/sg" />
-    <entry file="file://$PROJECT_DIR$/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -971,58 +758,344 @@
         </state>
       </provider>
     </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/changepwd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/35bb5e63/53cc679d-8f39-4783-b1ab-378c2137c0fc/radius.radcheck">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/parm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="54" column="0" selection-start-line="31" selection-start-column="10" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="160">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cron/cron.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="256">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="30" />
           <folding>
-            <element signature="n#CreateUser#0;n#!!top" expanded="false" />
             <element signature="n#SuspendUser#0;n#!!top" expanded="false" />
             <element signature="n#resetLoginPwd#0;n#!!top" expanded="false" />
             <element signature="n#resetTnxPwd#0;n#!!top" expanded="false" />
-            <element signature="n#ValidateLoginPwd#0;n#!!top" expanded="false" />
-            <marker date="1469603545211" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
-            <marker date="1469603545211" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
-            <marker date="1469603545211" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
-            <marker date="1469603545211" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
-            <marker date="1469603545211" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
-            <marker date="1469603545211" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <element signature="n#ChangePassword#0;n#!!top" expanded="false" />
+            <element signature="n#ForgetPassword#0;n#!!top" expanded="false" />
+            <marker date="1469689271383" expanded="true" signature="195:258" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="520:648" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="660:802" ph="INSERT INTO radius.radcheck... " />
+            <marker date="1469689271383" expanded="true" signature="1178:1238" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="1370:1438" ph="SELECT * FRO... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="1712:1830" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="1854:1970" ph="INSERT INTO radius.radusergroup... " />
+            <marker date="1469689271383" expanded="true" signature="2597:2658" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="2790:2863" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="3246:3315" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="3447:3528" ph="UPDATE radiu... " />
+            <marker date="1469689271383" expanded="true" signature="4022:4203" ph="SELECT radus... radusergroup" />
+            <marker date="1469689271383" expanded="true" signature="4392:4491" ph="SELECT * FRO... radcheck" />
+            <marker date="1469689271383" expanded="true" signature="5165:5232" ph="SELECT usern... radcheck" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cron/users.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        <state relative-caret-position="352">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding>
-            <marker date="1469526150681" expanded="true" signature="245:426" ph="SELECT radus... radusergroup" />
-            <marker date="1469526150681" expanded="true" signature="616:715" ph="SELECT * FRO... radcheck" />
-            <marker date="1469526150681" expanded="true" signature="1293:1360" ph="SELECT usern... radcheck" />
+            <element signature="e#6#1208#0#PHP" expanded="true" />
+            <marker date="1469610399789" expanded="true" signature="247:428" ph="SELECT radus... radusergroup" />
+            <marker date="1469610399789" expanded="true" signature="618:717" ph="SELECT * FRO... radcheck" />
+            <marker date="1469610399789" expanded="true" signature="1301:1368" ph="SELECT usern... radcheck" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>

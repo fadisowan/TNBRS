@@ -1,5 +1,5 @@
 <?php
-
+/*
 function ValidateLoginPwd ($ValidateLoginUSR,$ValidateLoginPWD)
 {
 
@@ -38,8 +38,12 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
 }
 
 
+*/
+
+
 function isFirstTime($username){
     require  'config/dbc.php';
+
 
     $Sql_isFirstTime = "SELECT username,firstLogin FROM radcheck where username='$username'";
 
@@ -47,20 +51,13 @@ function isFirstTime($username){
     $rs = mysqli_query($conn, $Sql_isFirstTime);
     $data = mysqli_fetch_array($rs, MYSQLI_NUM);
     if ($data[1] == 1) {
-        $txnStatus = "This Login is the first time ";
-
-
-
-        echo $txnStatus;
+        $rslt=true;
     } else {
-        $txnStatus = "<br>This Login is not first time ";
-        echo $txnStatus;
+        $rslt= false;
     }
+    return $rslt;
 }
-
-
-
-
+echo isFirstTime("fadi");
 /*
 
 $dbuser="fadi";

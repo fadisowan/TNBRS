@@ -8,7 +8,7 @@
 //action
 //------------- Main IF POST-------------------------------------------------
 require_once 'config/parm.php';
-isset($_GET['username']) ? $userNamePost = trim($_GET['username']) : $username = "";
+isset($_GET['username']) ? $userNamePost = strip_tags($_GET['username']) : $userNamePost = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
 isset($_GET['action']) ? $action =  $_GET['action'] : $action = "";
 
