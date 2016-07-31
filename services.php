@@ -1,9 +1,13 @@
 <?php
 
+
 require_once  'lib/nusoap.php';
 require_once 'config/parm.php';
 
+
+
 $username = trim($_REQUEST['username']);
+
 
 function CreateUser($usernameCreate){
     require  'config/dbc.php';
@@ -155,11 +159,12 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
 
             ///check is first time login
             if (isFirstTime($ValidateLoginUSR)==1){
-
+                //redirect("changepwd.php");
+                $txnStatus ="first time login";
 
             }else{
-                $txnStatus ="not user successfully login";
 
+                $txnStatus ="not first time login";
             }
 
 
@@ -198,11 +203,54 @@ function isFirstTime($username){
 
 
 
-function ChangePassword($username,$oldpassword,$newpassword){
+function ChangePassword($ValidateLoginUSR,$ValidateLoginPWD,$ValidateLoginnewPWD){
+
+    require  'config/dbc.php';
+
+        $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
+
+        $rs = mysqli_query($conn,$sqlLogin);
+        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+        if($data[0] > 1) {
+// UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD'  WHERE username='$ValidateLoginUSR';
+            $sql =  "UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD'  WHERE username='$ValidateLoginUSR';";
+            if ($conn->query($sql) === TRUE) {
+
+                $txnStatus = "password change";
+                return $txnStatus;
+            }
+
+
+
+        }  else {
+            $txnStatus ="not login";
+            return $txnStatus;
+        }
+
 
 }
-function ForgetPassword (){
+function ForgetPassword ($forgetusername){
+    require  'config/dbc.php';
 
+    $pwd=genPass();
+    $sqlCHK = "SELECT * FROM  radius.radcheck WHERE username='$forgetusername'";
+    $rs = mysqli_query($conn,$sqlCHK);
+    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+
+    if($data[0] > 1) {
+        $sql =  "UPDATE radius.radcheck SET value = '$pwd'  WHERE username='$forgetusername';";
+        if ($conn->query($sql) === TRUE) {
+
+            $txnStatus = "Password Has been reset ";
+            return $txnStatus;
+        }
+    }else
+
+    {
+        $txnStatus= 'username not found! to reset password';
+        return $txnStatus;
+    }
+    $conn->close();
 }
 
 $server = new soap_server();

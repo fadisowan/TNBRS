@@ -10,11 +10,10 @@ require_once 'config/parm.php';
 //git username /password
 isset($_GET['username']) ? $userNamePost = strip_tags($_GET['username']) : $userNamePost = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
-isset($_GET['password']) ? $passwordPOST =  $_GET['password'] : $passwordPOST = "";
-isset($_GET['newpassword']) ? $newpasswordPOST =  $_GET['newpassword'] : $newpasswordPOST = "";
+ isset($_GET['action']) ? $action =  $_GET['action'] : $action = "";
 
-if(isset($userNamePost) && isset($passwordPOST) ){
-    if(!empty($userNamePost)&&!empty($passwordPOST)){
+if(isset($userNamePost) && isset($_GET['action']) ){
+    if(!empty($userNamePost)&&!empty($action)){
 //-------------------------------------------------------------------------
         require_once  ('lib/nusoap.php');
         $client=new nusoap_client($GLOBALS['WSDL']);
@@ -24,12 +23,11 @@ if(isset($userNamePost) && isset($passwordPOST) ){
         }
 //-------------------------------------------------------------------------
 
-        $result=$client->call("ChangePassword", array(
-            "ValidateLoginUSR"=>"$userNamePost",
-            "ValidateLoginPWD"=>"$passwordPOST",
-            "ValidateLoginnewPWD"=>"$newpasswordPOST",
-
+        $result=$client->call("ForgetPassword", array(
+            "forgetusername"=>"$userNamePost"
+     
         ));
+
 
 
     }else{
