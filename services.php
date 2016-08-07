@@ -120,7 +120,7 @@ function resetTnxPwd($TNXUserPwd)
     $conn->close();
 }
 
-function ValidateLoginPwd($ValidateLoginUSR, $ValidateLoginPWD)
+function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
 {
 
     require 'config/dbc.php';
@@ -138,6 +138,8 @@ function ValidateLoginPwd($ValidateLoginUSR, $ValidateLoginPWD)
             ///check is first time login
             if (isFirstTime($ValidateLoginUSR) == 1) {
                 //redirect("changepwd.php");
+                header("location: index.html");
+                exit();
                 $txnStatus = "first time login";
 
             } else {
@@ -160,6 +162,8 @@ function ValidateLoginPwd($ValidateLoginUSR, $ValidateLoginPWD)
 
 }
 
+
+
 function isFirstTime($username)
 {
     require 'config/dbc.php';
@@ -177,6 +181,9 @@ function isFirstTime($username)
     }
     return $rslt;
 }
+
+
+
 
 function isUsersexists($username)
 {
@@ -259,7 +266,7 @@ function ForgetPassword($forgetusername)
     $data = mysqli_fetch_array($rs, MYSQLI_NUM);
 
     if ($data[0] > 1) {
-        $sql = "UPDATE radius.radcheck SET value = '$pwd'  WHERE username='$forgetusername';";
+        $sql = "UPDATE radius.radcheck SET value = '$pwd',firstLogin = TRUE  WHERE username='$forgetusername';";
         if ($conn->query($sql) === TRUE) {
 
             $txnStatus = "Password su reset ";
@@ -269,6 +276,7 @@ function ForgetPassword($forgetusername)
         $txnStatus = 'username not found! to reset password';
         return $txnStatus;
     }
+
     $conn->close();
 }
 
@@ -278,7 +286,7 @@ $server->register('CreateUser', array("usernameCreate" => "xsd:string"), array("
 $server->register('SuspendUser', array("suspendName" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#SuspendUser");
 $server->register('resetLoginPwd', array("LoginPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetLoginPwd");
 $server->register('resetTnxPwd', array("TNXUserPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetTnxPwd");
-$server->register('ValidateLoginPwd', array("ValidateLoginPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ValidateLoginPwd");
+$server->register('ValidateLogin', array("ValidateLogin" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ValidateLogin");
 $server->register('ChangePassword', array("ChangePassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ChangePassword");
 $server->register('ForgetPassword', array("ForgetPassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ForgetPassword");
 

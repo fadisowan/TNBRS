@@ -6,7 +6,7 @@
  * Time: 2:00 PM
  */
 $GLOBALS['WSDL']="http://192.168.160.132/fadi2/services.php?wsdl";
- $GLOBALS['tnx_']='tnx_';
+$GLOBALS['tnx_']='tnx_';
 
 function genPass($len = 8) {
     $charPool = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";

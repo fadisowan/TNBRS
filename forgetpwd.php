@@ -13,7 +13,7 @@ isset($_GET['username']) ? $userNamePost = strip_tags($_GET['username']) : $user
  isset($_GET['action']) ? $action =  $_GET['action'] : $action = "";
 
 if(isset($userNamePost) && isset($_GET['action']) ){
-    if(!empty($userNamePost)&&!empty($action)){
+    if(!empty($userNamePost)&&!empty($action) &&$action=="reset" ){
 //-------------------------------------------------------------------------
         require_once  ('lib/nusoap.php');
         $client=new nusoap_client($GLOBALS['WSDL']);

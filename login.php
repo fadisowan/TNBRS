@@ -23,11 +23,10 @@ if(isset($userNamePost) && isset($passwordPOST) ){
         }
 //-------------------------------------------------------------------------
 
-          $result=$client->call("ValidateLoginPwd", array(
+          $result=$client->call("ValidateLogin", array(
               "ValidateLoginUSR"=>"$userNamePost",
               "ValidateLoginPWD"=>"$passwordPOST"
           ));
-
 
     }else{
         echo "<pre>username or password can't be null or empty!</pre>";

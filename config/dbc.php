@@ -8,6 +8,10 @@ define("DATABASE", "radius");
 
 $conn = new mysqli(HOST, USER,PASSWORD,DATABASE);
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 /*
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member";
@@ -16,10 +20,6 @@ define("DEFAULT_ROLE", "member";
 
 
 
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 /*
 try{
