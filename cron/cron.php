@@ -10,7 +10,7 @@ require_once 'config/parm.php';
 require  'config/dbc.php';*/
 
 
-    $path="users.txt";
+    $path="./cron/users.txt";
     $isCreated=true;
 
 /*    if($isCreated){
