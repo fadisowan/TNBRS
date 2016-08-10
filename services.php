@@ -86,7 +86,7 @@ function resetLoginPwd($LoginUserPwd)
 
 
     if (isUsersexists($LoginUserPwd)) {
-        $sql = "UPDATE radius.radcheck SET value = '$pwd'  WHERE username='$LoginUserPwd';";
+        $sql = "UPDATE radius.radcheck SET value = '$pwd',locked=FALSE,firstLogin=TRUE ,attempt=0 WHERE username='$LoginUserPwd';";
         if ($conn->query($sql) === TRUE) {
 
             $txnStatus = "resetLoginPwd";
@@ -107,7 +107,7 @@ function resetTnxPwd($TNXUserPwd)
 
 
     if (isUsersexists($TNXUserPwd)) {
-        $sql = "UPDATE radius.radcheck SET value = '$pwd'  WHERE username='$tnxSuffix$TNXUserPwd'";
+        $sql = "UPDATE radius.radcheck SET value = '$pwd',locked=FALSE,firstLogin=TRUE ,attempt=0  WHERE username='$tnxSuffix$TNXUserPwd'";
         if ($conn->query($sql) === TRUE) {
 
             $txnStatus = "resetTnxPwd";
@@ -126,34 +126,43 @@ function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
     require 'config/dbc.php';
 
     // $dataSUSPEND = mysqli_fetch_array($rsSUSPEND, MYSQLI_NUM);
+
+
     if (!isUserSuspended($ValidateLoginUSR)) {
+//start
+        if (!isLocked($ValidateLoginUSR)) {
+            $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
 
-        $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
+            $rs = mysqli_query($conn, $sqlLogin);
+            $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+            if ($data[0] > 1) {
 
-        $rs = mysqli_query($conn, $sqlLogin);
-        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-        if ($data[0] > 1) {
+                if (isFirstTime($ValidateLoginUSR) == 1) {
 
 
-            ///check is first time login
-            if (isFirstTime($ValidateLoginUSR) == 1) {
-                //redirect("changepwd.php");
-                header("location: index.html");
-                exit();
-                $txnStatus = "first time login";
+                    $txnStatus = "first time login";
 
+                } else {
+
+                    $txnStatus = "not first time login";
+                }
+
+
+                return $txnStatus;
             } else {
 
-                $txnStatus = "not first time login";
+                attempt($ValidateLoginUSR);
+                $txnStatus = "username or password invalid, try again";
+                return $txnStatus;
+
+
             }
-
-
-            return $txnStatus;
         } else {
-            $txnStatus = "username or password invalid, try again";
+
+            $txnStatus = "Account is Locked";
+
             return $txnStatus;
         }
-
     } else {
         $txnStatus = "user suspended you can't login";
 
@@ -162,6 +171,43 @@ function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
 
 }
 
+function attempt($username)
+{
+    require 'config/dbc.php';
+    $currntAttpmt = "SELECT attempt FROM  radcheck WHERE username='$username' ; ";
+
+    $rs_attmpt = mysqli_query($conn, $currntAttpmt);
+
+    $data_attmpt = mysqli_fetch_array($rs_attmpt, MYSQLI_NUM);
+
+    if (isUsersexists($username)) {
+        if ($data_attmpt ['0'] >= 4) {//= 5 attmpt
+
+            $sql_lock = "UPDATE radius.radcheck SET  locked = TRUE WHERE username='$username';";
+            if ($conn->query($sql_lock) === TRUE) {
+
+
+                return true;
+            }
+
+            //return true;
+        } else {
+
+            $sql_attmp = "UPDATE radius.radcheck SET attempt =attempt+1 WHERE username='$username';";
+            if ($conn->query($sql_attmp) === TRUE) {
+
+
+                return true;
+            }
+
+
+            //return false;
+        }
+
+
+    }
+
+}
 
 
 function isFirstTime($username)
@@ -183,8 +229,6 @@ function isFirstTime($username)
 }
 
 
-
-
 function isUsersexists($username)
 {
     require 'config/dbc.php';
@@ -204,6 +248,25 @@ function isUsersexists($username)
     }
 
 
+}
+
+function isLocked($username)
+{
+    require 'config/dbc.php';
+
+    $sql_locked = " SELECT  locked FROM  radcheck WHERE username='$username';
+ ";
+
+
+    $rs_locked = mysqli_query($conn, $sql_locked);
+    $data_locked = mysqli_fetch_array($rs_locked, MYSQLI_NUM);
+
+    if ($data_locked [0] == true) {
+
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function isUserSuspended($username)
@@ -232,6 +295,10 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
 function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewPWD)
 {
 
+
+    if(!isLocked($ValidateLoginUSR)){
+
+
     require 'config/dbc.php';
 
     $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
@@ -240,7 +307,7 @@ function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewP
     $data = mysqli_fetch_array($rs, MYSQLI_NUM);
     if ($data[0] > 1) {
 // UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD'  WHERE username='$ValidateLoginUSR';
-        $sql = "UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD'  WHERE username='$ValidateLoginUSR';";
+        $sql = "UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD', firstLogin=FALSE  WHERE username='$ValidateLoginUSR';";
         if ($conn->query($sql) === TRUE) {
 
             $txnStatus = "password change";
@@ -252,7 +319,10 @@ function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewP
         $txnStatus = "not login";
         return $txnStatus;
     }
-
+    }else{
+        $txnStatus = "You can't change password your account is locked";
+        return $txnStatus;
+    }
 
 }
 
@@ -266,7 +336,7 @@ function ForgetPassword($forgetusername)
     $data = mysqli_fetch_array($rs, MYSQLI_NUM);
 
     if ($data[0] > 1) {
-        $sql = "UPDATE radius.radcheck SET value = '$pwd',firstLogin = TRUE  WHERE username='$forgetusername';";
+        $sql = "UPDATE radius.radcheck SET value = '$pwd',firstLogin = TRUE ,locked=FALSE WHERE username='$forgetusername';";
         if ($conn->query($sql) === TRUE) {
 
             $txnStatus = "Password su reset ";

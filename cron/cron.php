@@ -13,9 +13,17 @@ require  'config/dbc.php';*/
     $path="users.txt";
     $isCreated=true;
 
-    if($isCreated){
+/*    if($isCreated){
         echo "file Created:  $path";
 
     }else{
         echo "file not creatd";
+    }*/
+
+$handle = fopen("users.txt", "r");
+if ($handle) {
+    while (($line = fgets($handle)) !== false) {
+        $line = str_replace("\n", "", $line);
     }
+    fclose($handle);
+}

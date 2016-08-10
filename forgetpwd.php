@@ -34,7 +34,7 @@ if(isset($userNamePost) && isset($_GET['action']) ){
         echo "<pre>username or password can't be null or empty!</pre>";
     }
 //------------- IF FALUT-------------------------------------------------
-    $par='01';
+
     if ($client->fault) {
         echo "<h2>Fault</h2><pre>";
         print_r($result);
