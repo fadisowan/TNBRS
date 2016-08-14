@@ -13,7 +13,7 @@ isset($_GET['username']) ? $userNamePost = strip_tags($_GET['username']) : $user
 isset($_GET['password']) ? $passwordPOST =  $_GET['password'] : $passwordPOST = "";
 
 if(isset($userNamePost) && isset($passwordPOST) ){
-    if(!empty($userNamePost)&&!empty($passwordPOST)){
+    if(!empty($userNamePost) && !empty($passwordPOST)){
 //-------------------------------------------------------------------------
         require_once  ('lib/nusoap.php');
         $client=new nusoap_client($GLOBALS['WSDL']);
