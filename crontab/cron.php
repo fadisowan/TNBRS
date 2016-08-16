@@ -1,15 +1,17 @@
 <?php
- 
-if (file_exists('users.txt')){
+/*
+            crontab -e
+            * * * * * php -q /var/www/html/daloradius-0.9-9/fadi2/crontab/cron.php
+
+ */
+
+require dirname(__DIR__).'/config/mainClass.php';
+if (file_exists(dirname(__DIR__).'/crontab/users.txt')){
 
 
-    $conn = new mysqli("localhost", "root", "", "radius");
+    require dirname(__DIR__).'/config/dbc.php';
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $pick_files = file_get_contents("users.txt");
+    $pick_files = file_get_contents(dirname(__DIR__).'/crontab/users.txt');
 
     $picked_FormattedData = explode("\n", $pick_files);
 
@@ -32,13 +34,13 @@ if (file_exists('users.txt')){
 
         }
 
-        echo "<pre>All Users Added Successfully</pre>";
+        //echo "<pre>Users Added Successfully: $user </pre>";
         $userCount++;
 
     }
 
 }else{
-    echo "not file exists";
+    echo "No users file exists";
 }
 
 
@@ -47,11 +49,7 @@ if (file_exists('users.txt')){
 function AddPickedUsers($username, $password)
 {
     // require 'config/dbc.php';
-    $conn = new mysqli("localhost", "root", "", "radius");
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require dirname(__DIR__).'/config/dbc.php';
     if (isUsersexists($username)) {
         $txnStatus = "user already exists";
         return $txnStatus;
@@ -78,30 +76,6 @@ function AddPickedUsers($username, $password)
 
 }
 
-function isUsersexists($username)
-{
-    $conn = new mysqli("localhost", "root", "", "radius");
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $userexists = "SELECT * FROM  radius.radcheck WHERE username='$username'";
-    $rs_userexists = mysqli_query($conn, $userexists);
-
-    $data_userexists = mysqli_fetch_array($rs_userexists, MYSQLI_NUM);
-
-
-    if ($data_userexists[0] > 1) {
-
-        return true;
-    } else {
-
-        return false;
-    }
-
-
-}
 
 
 

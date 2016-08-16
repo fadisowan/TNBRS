@@ -5,8 +5,12 @@
  * Date: 8/14/2016
  * Time: 1:08 PM
  */
-function GetMobile($username){
-    require 'config/dbc.php';
+/*ini_set('dispaly_errors',1);*/
+
+
+
+      function GetMobile($username){
+    require  dirname(__DIR__).'/config/dbc.php';
 
 
     $Sql_getMobile = "SELECT  mobile FROM   radius.radcheck WHERE username='$username'";
@@ -23,10 +27,25 @@ function GetMobile($username){
         return false;
     }
 }
-
-function isUsersexists($username)
+  function GetPass($username)
 {
-    require 'config/dbc.php';
+
+    if (isUsersexists($username)) {
+        require dirname(__DIR__).'/config/dbc.php';
+
+
+        $getID = mysqli_fetch_assoc(mysqli_query($conn, "SELECT value FROM radcheck where username='$username'"));
+        $userID = $getID['value'];
+        return $userID;
+    }else{
+        return false;
+    }
+
+}
+
+ function isUsersexists($username)
+{
+    require dirname(__DIR__).'/config/dbc.php';
 
     $userexists = "SELECT * FROM  radius.radcheck WHERE username='$username'";
     $rs_userexists = mysqli_query($conn, $userexists);
@@ -47,7 +66,7 @@ function isUsersexists($username)
 
 function isLocked($username)
 {
-    require 'config/dbc.php';
+    require dirname(__DIR__).'/config/dbc.php';
 
     $sql_locked = " SELECT  locked FROM  radcheck WHERE username='$username';
  ";
@@ -66,7 +85,7 @@ function isLocked($username)
 
 function isUserSuspended($username)
 {
-    require 'config/dbc.php';
+    require dirname(__DIR__).'/config/dbc.php';
 
     $sql_suspended = "SELECT
   radusergroup.username,
@@ -90,7 +109,7 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
 
 function attempt($username)
 {
-    require 'config/dbc.php';
+    require dirname(__DIR__).'/config/dbc.php';
     $currntAttpmt = "SELECT attempt FROM  radcheck WHERE username='$username' ; ";
 
     $rs_attmpt = mysqli_query($conn, $currntAttpmt);
@@ -129,7 +148,7 @@ function attempt($username)
 
 function isFirstTime($username)
 {
-    require 'config/dbc.php';
+    require dirname(__DIR__).'/config/dbc.php';
 
 
     $Sql_isFirstTime = "SELECT username,firstLogin FROM radcheck where username='$username'";
@@ -145,10 +164,8 @@ function isFirstTime($username)
     return $rslt;
 }
 
-function SendSMS($username, $phone, $password)
-{
 
-}
+
 
 
 

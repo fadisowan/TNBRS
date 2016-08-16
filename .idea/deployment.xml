@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="RADUIS" filePermissions="420" folderPermissions="493">
+  <component name="PublishConfigData" autoUpload="Always" serverName="RADUIS" filePermissions="420" folderPermissions="493">
     <serverData>
       <paths name="RADUIS">
         <serverdata>
           <mappings>
-            <mapping deploy="/var/www/html/daloradius-0.9-9/fadi2/" local="$PROJECT_DIR$" web="fadi2/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="fadi2/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

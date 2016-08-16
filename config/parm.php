@@ -8,6 +8,9 @@
 $GLOBALS['WSDL']="http://192.168.160.132/fadi2/services.php?wsdl";
 $GLOBALS['tnx_']='tnx_';
 $GLOBALS['SMS_IP']='http://91.240.148.34/';
+$GLOBALS['PICK_USERS_FILE']='users.txt';
+$siteroot='/var/www/html/daloradius-0.9-9/fadi2/';
+
 function genPass($len = 8) {
     $charPool = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
     $pass = array();

@@ -10,10 +10,11 @@ require_once 'config/parm.php';
 //git username /password
 isset($_GET['username']) ? $userNamePost = strip_tags($_GET['username']) : $userNamePost = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
- isset($_GET['action']) ? $action =  $_GET['action'] : $action = "";
+ //isset($_GET['action']) ? $action =  $_GET['action'] : $action = "";
 
-if(isset($userNamePost) && isset($_GET['action']) ){
-    if(!empty($userNamePost)&&!empty($action) &&$action=="reset" ){
+//if(isset($userNamePost) && isset($_GET['action']) ){
+if(isset($userNamePost)){
+    if(!empty($userNamePost)){
 //-------------------------------------------------------------------------
         require_once  ('lib/nusoap.php');
         $client=new nusoap_client($GLOBALS['WSDL']);

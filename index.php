@@ -1,42 +1,20 @@
-<?php
-/*
-function ValidateLoginPwd ($ValidateLoginUSR,$ValidateLoginPWD)
-{
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TNB Bank Web Services</title>
+    <style type="text/css">
+        .center {
+            text-align: center;
 
-    require  'config/dbc.php';
-    //$sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
-    $sqlSUSPEND = "SELECT
-  radusergroup.username,
-  radusergroup.groupname
-FROM radusergroup
-WHERE radusergroup.username = '$ValidateLoginUSR'
-AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
-       ";
-    $rsSUSPEND = mysqli_query($conn,$sqlSUSPEND);
-    // $dataSUSPEND = mysqli_fetch_array($rsSUSPEND, MYSQLI_NUM);
-    if(mysqli_num_rows($rsSUSPEND)==0) {
-
-        $sqlLogin = "SELECT  * FROM radius.radcheck   WHERE username='$ValidateLoginUSR'  and value ='$ValidateLoginPWD'";
-
-        $rs = mysqli_query($conn,$sqlLogin);
-        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-        if($data[0] > 1) {
-            $txnStatus ="<br>user successfully login";
-            isFirstTime($ValidateLoginUSR);
-            echo  $txnStatus;
-        }  else {
-            $txnStatus ="<br>username or password invalid, try again";
-            echo $txnStatus;
         }
+    </style>
+</head>
 
-    }else{
-        $txnStatus ="user suspended you can't login";
-
-        echo $txnStatus;
-    }
-
-}
-
-
-*/
-
+<body class="center">
+<h1>
+    <pre>TNB Bank Web Services</pre> <h2><pre>Developed By Integrated Solutions</pre></h2><h4><pre> &copy;2016</pre></h4>
+</h1>
+</form>
+</body>
+</html>

@@ -234,7 +234,7 @@ function ForgetPassword($username)
 }
 
 $server = new soap_server();
-$server->configureWSDL("TNB Bank Web Serives", "urn:Radius");
+$server->configureWSDL("TNB Bank Web Serives | Integrated Solutions", "urn:Radius");
 $server->register('CreateUser', array("usernameCreate" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#CreateUser");
 $server->register('SuspendUser', array("suspendName" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#SuspendUser");
 $server->register('resetLoginPwd', array("LoginPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetLoginPwd");
