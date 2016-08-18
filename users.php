@@ -7,7 +7,8 @@
  */
 //action
 //------------- Main IF POST-------------------------------------------------
-require_once 'config/parm.php';
+require_once '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
+
 isset($_GET['username']) ? $userNamePost = trim(strip_tags($_GET['username'])) : $userNamePost = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
 isset($_GET['action']) ? $action =  trim(strip_tags($_GET['action'])) : $action = "";

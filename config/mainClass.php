@@ -7,10 +7,86 @@
  */
 /*ini_set('dispaly_errors',1);*/
 
+function TST(){
+    /*
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "http://192.168.160.132/RemoteServices/services.php?wsdl");
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_exec($ch);
+
+    curl_close($ch);
+    */
+    return "yes";
+
+}
+
+function SendSMS($username)
+{
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
+
+    $MOBILE = GetMobile($username);
+    $pass= GetPass($username);
+
+    $msg ="TNBank NEW Password ".'"'.$pass.'"'.'<br>';
+
+    //echo $msg;
 
 
-      function GetMobile($username){
-    require  dirname(__DIR__).'/config/dbc.php';
+
+
+
+    //$URL="http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$MOBILE&text=$msg";
+    header('Location:    http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$MOBILE&text=$msg');
+
+
+    // echo $URL."<br>";
+    /*
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$URL);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+     curl_exec($ch);
+
+        curl_close($ch);
+    */
+
+
+
+}
+
+function AddPickedUsers($username, $mobile)
+{
+    // require 'config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
+    if (isUsersexists($username)) {
+        $txnStatus = "user already exists";
+        return $txnStatus;
+    } else {
+        $tnxSuffix = "tnx_";
+
+        $pwd = genPass();
+
+        $tnx_pwd = genPass();
+        $sql = "INSERT INTO radius.radcheck (id, username, attribute, op, value,mobile) VALUES (0,'$username', 'Cleartext-Password', ':=','$pwd','$mobile')";
+        $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value,mobile) VALUES (0,'$tnxSuffix$username', 'Cleartext-Password', ':=','$tnx_pwd','$mobile')";
+        //if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
+
+            $txnStatus = 'create';
+
+            return $txnStatus;
+        } else {
+
+            $txnStatus = "user can't created";
+            return $txnStatus;
+        }
+        $conn->close();
+
+    }
+
+}
+
+function GetMobile($username){
+    require  '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
 
     $Sql_getMobile = "SELECT  mobile FROM   radius.radcheck WHERE username='$username'";
@@ -22,30 +98,27 @@
     if ($data_getMobile[0] > 1) {
 
         return $data_getMobile[0];
-    } else {
-
-        return false;
     }
 }
-  function GetPass($username)
+function GetPass($username)
 {
 
     if (isUsersexists($username)) {
-        require dirname(__DIR__).'/config/dbc.php';
+        require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
 
-        $getID = mysqli_fetch_assoc(mysqli_query($conn, "SELECT value FROM radcheck where username='$username'"));
-        $userID = $getID['value'];
-        return $userID;
+        $Sql_getPass = mysqli_fetch_assoc(mysqli_query($conn, "SELECT value FROM radcheck where username='$username'"));
+        $getPass = $Sql_getPass['value'];
+        return $getPass;
     }else{
         return false;
     }
 
 }
 
- function isUsersexists($username)
+function isUsersexists($username)
 {
-    require dirname(__DIR__).'/config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
     $userexists = "SELECT * FROM  radius.radcheck WHERE username='$username'";
     $rs_userexists = mysqli_query($conn, $userexists);
@@ -53,7 +126,7 @@
     $data_userexists = mysqli_fetch_array($rs_userexists, MYSQLI_NUM);
 
 
-    if ($data_userexists[0] > 1) {
+    if ($data_userexists[0] > 0) {
 
         return true;
     } else {
@@ -66,7 +139,7 @@
 
 function isLocked($username)
 {
-    require dirname(__DIR__).'/config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
     $sql_locked = " SELECT  locked FROM  radcheck WHERE username='$username';
  ";
@@ -85,7 +158,7 @@ function isLocked($username)
 
 function isUserSuspended($username)
 {
-    require dirname(__DIR__).'/config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
     $sql_suspended = "SELECT
   radusergroup.username,
@@ -109,7 +182,7 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
 
 function attempt($username)
 {
-    require dirname(__DIR__).'/config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
     $currntAttpmt = "SELECT attempt FROM  radcheck WHERE username='$username' ; ";
 
     $rs_attmpt = mysqli_query($conn, $currntAttpmt);
@@ -148,7 +221,7 @@ function attempt($username)
 
 function isFirstTime($username)
 {
-    require dirname(__DIR__).'/config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
 
     $Sql_isFirstTime = "SELECT username,firstLogin FROM radcheck where username='$username'";
@@ -163,6 +236,7 @@ function isFirstTime($username)
     }
     return $rslt;
 }
+
 
 
 

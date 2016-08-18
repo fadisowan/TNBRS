@@ -1,9 +1,9 @@
 <?php
 
 
-require_once 'lib/nusoap.php';
-require_once 'config/parm.php';
-require 'config/mainClass.php';
+require_once '/var/www/html/daloradius-0.9-9/RemoteServices/lib/nusoap.php';
+require_once '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
+require '/var/www/html/daloradius-0.9-9/RemoteServices/config/mainClass.php';
 
 $username = trim($_REQUEST['username']);
 
@@ -26,6 +26,7 @@ function CreateUser($usernameCreate)
         if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
 
             $txnStatus = 'create';
+
             return $txnStatus;
         } else {
 
@@ -228,13 +229,32 @@ function ForgetPassword($username)
             return $txnStatus;
         }
 
+        ob_end_clean();
+        header("Connection: close");
+        ignore_user_abort();
+        ob_start();
+        header("Location: http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=0594202098&text=123");
+
+        $size = ob_get_length();
+        header("Content-Length: $size");
+        ob_end_flush();
+        flush();
+
 
         $conn->close();
     }
 }
 
+function forgeteSMS($username)
+{
+
+     header("Location: http://www.w3schools.com/html/html_forms.asp?username=$username");
+
+}
+
+
 $server = new soap_server();
-$server->configureWSDL("TNB Bank Web Serives | Integrated Solutions", "urn:Radius");
+$server->configureWSDL("TNB Bank Web Serives | Integrated Solutions ", "urn:Radius");
 $server->register('CreateUser', array("usernameCreate" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#CreateUser");
 $server->register('SuspendUser', array("suspendName" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#SuspendUser");
 $server->register('resetLoginPwd', array("LoginPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetLoginPwd");
@@ -242,6 +262,7 @@ $server->register('resetTnxPwd', array("TNXUserPwd" => "xsd:string"), array("ret
 $server->register('ValidateLogin', array("ValidateLogin" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ValidateLogin");
 $server->register('ChangePassword', array("ChangePassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ChangePassword");
 $server->register('ForgetPassword', array("ForgetPassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ForgetPassword");
+$server->register('forgeteSMS', array("username" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#SendSMS");
 
 
 $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';

@@ -4,12 +4,16 @@
             * * * * * php -q /var/www/html/daloradius-0.9-9/fadi2/crontab/cron.php
 
  */
+require '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
+require '/var/www/html/daloradius-0.9-9/RemoteServices/config/mainClass.php';
 
-require dirname(__DIR__).'/config/mainClass.php';
+
+
+
 if (file_exists(dirname(__DIR__).'/crontab/users.txt')){
 
 
-    require dirname(__DIR__).'/config/dbc.php';
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
     $pick_files = file_get_contents(dirname(__DIR__).'/crontab/users.txt');
 
@@ -24,58 +28,42 @@ if (file_exists(dirname(__DIR__).'/crontab/users.txt')){
 
         //makeing sure user and pass are specified and are not empty
         //columns by chance
+        isset($users[0]) ? $smsuser = $users[0] : $smsuser = "";
+
         if ((isset($users[0]) && (!empty($users[0])))
             &&
             ((isset($users[1]) && (!empty($users[1]))))
         ) {
             $user = trim($users[0]);
-            $pass = trim($users[1]);
-            AddPickedUsers($user, $pass);
+            $mobile = trim($users[1]);
+            AddPickedUsers($user, $mobile);
+
+            $MOBILE = GetMobile($username);
+            $pass= GetPass($username);
+
+            //$msg ="TNBank NEW Password ".'"'.$pass.'"'.'<br>';
+            $msg ="TNBank NEW Password ".'"'.$pass.'"'.'<br>';
+            $users=[$user=>$mobile];
+            foreach ($users as $user=>$mobile){
+                // header("location: http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$mobile ");
+                echo "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
+                echo "<br>";
+            }
+
+
+
+
+
+
 
         }
 
         //echo "<pre>Users Added Successfully: $user </pre>";
         $userCount++;
+        //SendSMS($smsuser);
 
     }
 
 }else{
     echo "No users file exists";
 }
-
-
-
-
-function AddPickedUsers($username, $password)
-{
-    // require 'config/dbc.php';
-    require dirname(__DIR__).'/config/dbc.php';
-    if (isUsersexists($username)) {
-        $txnStatus = "user already exists";
-        return $txnStatus;
-    } else {
-        $tnxSuffix = "tnx_";
-
-        // $pwd = genPass();
-        $pwd = $password;
-        $tnx_pwd = $password;
-        $sql = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$username', 'Cleartext-Password', ':=','$pwd')";
-        $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$tnxSuffix$username', 'Cleartext-Password', ':=','$tnx_pwd')";
-        //if ($conn->query($sql) === TRUE) {
-        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
-
-            $txnStatus = 'create';
-            return $txnStatus;
-        } else {
-
-            $txnStatus = "user can't created";
-            return $txnStatus;
-        }
-        $conn->close();
-    }
-
-}
-
-
-
-
