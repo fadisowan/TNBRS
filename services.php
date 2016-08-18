@@ -228,28 +228,16 @@ function ForgetPassword($username)
             $txnStatus = "Password reset";
             return $txnStatus;
         }
-
-        ob_end_clean();
-        header("Connection: close");
-        ignore_user_abort();
-        ob_start();
-        header("Location: http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=0594202098&text=123");
-
-        $size = ob_get_length();
-        header("Content-Length: $size");
-        ob_end_flush();
-        flush();
-
+        $mobile = GetMobile($username);
+        $msg = "TNBank, $username NEW Password: $pwd";
+        $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_exec($ch);
+        curl_close($ch);
 
         $conn->close();
     }
-}
-
-function forgeteSMS($username)
-{
-
-     header("Location: http://www.w3schools.com/html/html_forms.asp?username=$username");
-
 }
 
 
@@ -262,7 +250,6 @@ $server->register('resetTnxPwd', array("TNXUserPwd" => "xsd:string"), array("ret
 $server->register('ValidateLogin', array("ValidateLogin" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ValidateLogin");
 $server->register('ChangePassword', array("ChangePassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ChangePassword");
 $server->register('ForgetPassword', array("ForgetPassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ForgetPassword");
-$server->register('forgeteSMS', array("username" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#SendSMS");
 
 
 $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';

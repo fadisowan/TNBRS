@@ -7,51 +7,8 @@
  */
 /*ini_set('dispaly_errors',1);*/
 
-function TST(){
-    /*
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "http://192.168.160.132/RemoteServices/services.php?wsdl");
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_exec($ch);
-
-    curl_close($ch);
-    */
-    return "yes";
-
-}
-
-function SendSMS($username)
-{
-    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
-
-    $MOBILE = GetMobile($username);
-    $pass= GetPass($username);
-
-    $msg ="TNBank NEW Password ".'"'.$pass.'"'.'<br>';
-
-    //echo $msg;
 
 
-
-
-
-    //$URL="http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$MOBILE&text=$msg";
-    header('Location:    http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$MOBILE&text=$msg');
-
-
-    // echo $URL."<br>";
-    /*
-        $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$URL);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-     curl_exec($ch);
-
-        curl_close($ch);
-    */
-
-
-
-}
 
 function AddPickedUsers($username, $mobile)
 {

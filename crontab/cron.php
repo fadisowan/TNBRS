@@ -8,20 +8,18 @@ require '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
 require '/var/www/html/daloradius-0.9-9/RemoteServices/config/mainClass.php';
 
 
-
-
-if (file_exists(dirname(__DIR__).'/crontab/users.txt')){
+if (file_exists(dirname(__DIR__) . '/crontab/users.txt')) {
 
 
     require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
-    $pick_files = file_get_contents(dirname(__DIR__).'/crontab/users.txt');
+    $pick_files = file_get_contents(dirname(__DIR__) . '/crontab/users.txt');
 
     $picked_FormattedData = explode("\n", $pick_files);
 
 
     $userCount = 0;
-    $iscomplete=false;
+    $iscomplete = false;
     foreach ($picked_FormattedData as $csvLine) {
         //list($user, $pass) = explode(",", $csvLine);
         $users = explode(",", $csvLine);
@@ -38,32 +36,33 @@ if (file_exists(dirname(__DIR__).'/crontab/users.txt')){
             $mobile = trim($users[1]);
             AddPickedUsers($user, $mobile);
 
-            $MOBILE = GetMobile($username);
-            $pass= GetPass($username);
+            $pass = GetPass($user);
 
-            //$msg ="TNBank NEW Password ".'"'.$pass.'"'.'<br>';
-            $msg ="TNBank NEW Password ".'"'.$pass.'"'.'<br>';
-            $users=[$user=>$mobile];
-            foreach ($users as $user=>$mobile){
-                // header("location: http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$mobile ");
-                echo "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
-                echo "<br>";
-            }
+            $msg = "TNBank, $user NEW Password: $pass";
+            //$url = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
+            //$url="https://www.facebook.com";
 
-
-
-
-
-
-
+          //  send_sms($mobile,$msg);
+var_dump(send_sms($mobile,$msg));
         }
 
-        //echo "<pre>Users Added Successfully: $user </pre>";
         $userCount++;
-        //SendSMS($smsuser);
 
     }
 
-}else{
+} else {
     echo "No users file exists";
+}
+
+function send_sms($to, $msg ) {
+    $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
+
+
+
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_URL, $uri );
+    $result = curl_exec( $ch );
+    curl_close($ch);
+    return $result;
+
 }
