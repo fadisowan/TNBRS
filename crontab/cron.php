@@ -35,15 +35,13 @@ if (file_exists(dirname(__DIR__) . '/crontab/users.txt')) {
             $user = trim($users[0]);
             $mobile = trim($users[1]);
             AddPickedUsers($user, $mobile);
-
             $pass = GetPass($user);
-
             $msg = "TNBank, $user NEW Password: $pass";
             //$url = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
             //$url="https://www.facebook.com";
 
           //  send_sms($mobile,$msg);
-var_dump(send_sms($mobile,$msg));
+ send_sms($mobile,$msg) ;
         }
 
         $userCount++;
@@ -56,11 +54,8 @@ var_dump(send_sms($mobile,$msg));
 
 function send_sms($to, $msg ) {
     $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
-
-
-
     $ch = curl_init();
-    curl_setopt( $ch, CURLOPT_URL, $uri );
+    curl_setopt( $ch, $uri );
     $result = curl_exec( $ch );
     curl_close($ch);
     return $result;
