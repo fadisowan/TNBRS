@@ -6,11 +6,14 @@
  * Time: 10:55 AM
  */
 
-$ch = curl_init();
-// curl_setopt($ch, CURLOPT_POST, false);
-curl_setopt($ch, "https://www.facebook.com/");
-$output = curl_exec($ch);
-curl_close($ch);
+send_sms("0599661094", "hello" );
 
-var_dump( $output);
+function send_sms($to, $msg ) {
+    $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_URL, $uri );
+    $output=  curl_exec( $ch );
+    curl_close($ch);
+    return $output;
 
+}

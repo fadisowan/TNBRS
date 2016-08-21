@@ -4,6 +4,7 @@
             * * * * * php -q /var/www/html/daloradius-0.9-9/fadi2/crontab/cron.php
 
  */
+ini_set('dispaly_errors',1);
 require '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
 require '/var/www/html/daloradius-0.9-9/RemoteServices/config/mainClass.php';
 
@@ -37,11 +38,13 @@ if (file_exists(dirname(__DIR__) . '/crontab/users.txt')) {
             AddPickedUsers($user, $mobile);
             $pass = GetPass($user);
             $msg = "TNBank, $user NEW Password: $pass";
+
+
             //$url = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
             //$url="https://www.facebook.com";
 
           //  send_sms($mobile,$msg);
- send_sms($mobile,$msg) ;
+  send_sms($mobile,urlencode($msg) ) ;
         }
 
         $userCount++;
@@ -54,10 +57,13 @@ if (file_exists(dirname(__DIR__) . '/crontab/users.txt')) {
 
 function send_sms($to, $msg ) {
     $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
+
+
+
     $ch = curl_init();
-    curl_setopt( $ch, $uri );
-    $result = curl_exec( $ch );
+    curl_setopt( $ch, CURLOPT_URL, $uri );
+   $output=    curl_exec( $ch );
     curl_close($ch);
-    return $result;
+    return $output;
 
 }

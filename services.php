@@ -230,16 +230,26 @@ function ForgetPassword($username)
         }
         $mobile = GetMobile($username);
         $msg = "TNBank, $username NEW Password: $pwd";
-        $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$mobile&text=$msg";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $uri);
-        curl_exec($ch);
-        curl_close($ch);
+
+        send_sms($mobile,urlencode($msg) ) ;
 
         $conn->close();
     }
 }
 
+
+function send_sms($to, $msg ) {
+    $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
+
+
+
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_URL, $uri );
+    $output=    curl_exec( $ch );
+    curl_close($ch);
+    return $output;
+
+}
 
 $server = new soap_server();
 $server->configureWSDL("TNB Bank Web Serives | Integrated Solutions ", "urn:Radius");

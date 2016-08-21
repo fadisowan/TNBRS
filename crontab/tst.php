@@ -61,7 +61,8 @@ function send_sms($to, $text ) {
     curl_setopt( $ch, CURLOPT_POST, 4); // number of fields
     curl_setopt($ch, CURLOPT_POST, count($SMS_URL));
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($SMS_URL));
-    //curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true ); // don't echo
+    curl_setopt( $ch, CURLOPT_POST, 4);
+     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true ); // don't echo
 
     $result = curl_exec( $ch );
     curl_close($ch);
