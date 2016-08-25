@@ -15,21 +15,3 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-/*
-define("CAN_REGISTER", "any");
-define("DEFAULT_ROLE", "member";
-
-*/
-
-
-
-
-/*
-try{
-    $pdo=new PDO('mysql:host=localhost;dbname=radius','root','');
-
-
-
-}catch (PDOException $e){
-    die("Connection failed: " );
-}*/

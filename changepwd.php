@@ -23,6 +23,7 @@ if(isset($userNamePost) && isset($passwordPOST) ){
             echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
         }
 //-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
         $result=$client->call("ChangePassword", array(
             "ValidateLoginUSR"=>"$userNamePost",

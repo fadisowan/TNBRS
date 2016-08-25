@@ -5,11 +5,11 @@
  * Date: 4/10/2016
  * Time: 2:00 PM
  */
+
 $GLOBALS['WSDL']="http://192.168.160.132/RemoteServices/services.php?wsdl";
 //GLOBALS['WSDL']="http://192.168.160.132/fadi2/services.php?wsdl";
 $GLOBALS['tnx_']='tnx_';
-$GLOBALS['SMS_IP']='http://91.240.148.34/';
-$GLOBALS['PICK_USERS_FILE']='users.txt';
+
 
 
 function genPass($len = 8) {

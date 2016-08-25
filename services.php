@@ -11,6 +11,8 @@ $username = trim($_REQUEST['username']);
 function CreateUser($usernameCreate)
 {
     require 'config/dbc.php';
+    $usernameCreate=mysqli_real_escape_string($conn,$usernameCreate);
+
 
     if (isUsersexists($usernameCreate)) {
         $txnStatus = "Account already exists";
@@ -42,6 +44,8 @@ function SuspendUser($suspendName)
 {
 
     require 'config/dbc.php';
+    $suspendName=mysqli_real_escape_string($conn,$suspendName);
+
 
     $tnxSuffix = $GLOBALS['tnx_'];
     $fUsername = $tnxSuffix . $suspendName;
@@ -82,6 +86,7 @@ function SuspendUser($suspendName)
 function resetLoginPwd($LoginUserPwd)
 {
     require 'config/dbc.php';
+    $LoginUserPwd=mysqli_real_escape_string($conn,$LoginUserPwd);
 
     $pwd = genPass();
 
@@ -103,6 +108,8 @@ function resetLoginPwd($LoginUserPwd)
 function resetTnxPwd($TNXUserPwd)
 {
     require 'config/dbc.php';
+    $TNXUserPwd=mysqli_real_escape_string($conn,$TNXUserPwd);
+
     $pwd = genPass();
     $tnxSuffix = $GLOBALS['tnx_'];
 
@@ -125,7 +132,8 @@ function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
 {
 
     require 'config/dbc.php';
-
+    $ValidateLoginUSR=mysqli_real_escape_string($conn,$ValidateLoginUSR);
+    $ValidateLoginPWD=mysqli_real_escape_string($conn,$ValidateLoginPWD);
     // $dataSUSPEND = mysqli_fetch_array($rsSUSPEND, MYSQLI_NUM);
 
     if (!isUsersexists($ValidateLoginUSR)) {
@@ -179,6 +187,11 @@ function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
 function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewPWD)
 {
 
+    $ValidateLoginUSR=mysqli_real_escape_string($conn,$ValidateLoginUSR);
+    $ValidateLoginPWD=mysqli_real_escape_string($conn,$ValidateLoginPWD);
+    $ValidateLoginnewPWD=mysqli_real_escape_string($conn,$ValidateLoginnewPWD);
+
+
     if (!isUsersexists($ValidateLoginUSR)) {
         $txnStatus = "username not found! to Change Password";
         return $txnStatus;
@@ -213,43 +226,36 @@ function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewP
     }
 }
 
-function ForgetPassword($username)
+function ForgetPassword($forgetusername)
 {
-    if (!isUsersexists($username)) {
+
+
+    if (!isUsersexists($forgetusername)) {
         $txnStatus = 'username not found! to reset password';
         return $txnStatus;
     } else {
         require 'config/dbc.php';
 
+        $forgetusername=mysqli_real_escape_string($conn,$forgetusername);
         $pwd = genPass();
-        $sql = "UPDATE radius.radcheck SET value = '$pwd',firstLogin = TRUE ,locked=FALSE,attempt=0 WHERE username='$username';";
+        $sql = "UPDATE radius.radcheck SET value = '$pwd',firstLogin = TRUE ,locked=FALSE,attempt=0 WHERE username='$forgetusername';";
         if ($conn->query($sql) === TRUE) {
-
+            $mobile = GetMobile($forgetusername);
+            $msg = "TNBank, $forgetusername NEW Password: $pwd";
+            SendSMS(trim($mobile), urlencode($msg));
             $txnStatus = "Password reset";
             return $txnStatus;
         }
-        $mobile = GetMobile($username);
-        $msg = "TNBank, $username NEW Password: $pwd";
-
-        send_sms($mobile,urlencode($msg) ) ;
 
         $conn->close();
     }
-}
-
-
-function send_sms($to, $msg ) {
-    $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
 
 
 
-    $ch = curl_init();
-    curl_setopt( $ch, CURLOPT_URL, $uri );
-    $output=    curl_exec( $ch );
-    curl_close($ch);
-    return $output;
 
 }
+
+
 
 $server = new soap_server();
 $server->configureWSDL("TNB Bank Web Serives | Integrated Solutions ", "urn:Radius");

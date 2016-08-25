@@ -7,9 +7,32 @@
  */
 /*ini_set('dispaly_errors',1);*/
 
+function SendSMS($username)
+{
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
+
+    $MOBILE = GetMobile($username);
+    $pass = GetPass($username);
+
+    $msg = "TNBank NEW Password " . '"' . $pass . '"' . '<br>';
+
+    echo $msg;
 
 
+    $URL = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$pass&text=$pass";
+    // echo $URL."<br>";
 
+    /*
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    $output = curl_exec($ch);
+    var_dump($output);
+    curl_close($ch);
+*/
+
+
+}
 function AddPickedUsers($username, $mobile)
 {
     // require 'config/dbc.php';
@@ -41,9 +64,9 @@ function AddPickedUsers($username, $mobile)
     }
 
 }
-
-function GetMobile($username){
-    require  '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
+function GetMobile($username)
+{
+    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
 
 
     $Sql_getMobile = "SELECT  mobile FROM   radius.radcheck WHERE username='$username'";
@@ -67,12 +90,11 @@ function GetPass($username)
         $Sql_getPass = mysqli_fetch_assoc(mysqli_query($conn, "SELECT value FROM radcheck where username='$username'"));
         $getPass = $Sql_getPass['value'];
         return $getPass;
-    }else{
+    } else {
         return false;
     }
 
 }
-
 function isUsersexists($username)
 {
     require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
@@ -93,7 +115,6 @@ function isUsersexists($username)
 
 
 }
-
 function isLocked($username)
 {
     require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
@@ -112,7 +133,6 @@ function isLocked($username)
         return false;
     }
 }
-
 function isUserSuspended($username)
 {
     require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
@@ -135,8 +155,6 @@ AND radusergroup.groupname = 'daloRADIUS-Disabled-Users'
         return true;
     }
 }
-
-
 function attempt($username)
 {
     require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
@@ -174,8 +192,6 @@ function attempt($username)
     }
 
 }
-
-
 function isFirstTime($username)
 {
     require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';

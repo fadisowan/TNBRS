@@ -40,6 +40,7 @@ switch ($action){
         break;
 
 
+
     case "resetTnxPwd":
         $result=$client->call("resetTnxPwd", array("TNXUserPwd"=>"$userNamePost"));
 
