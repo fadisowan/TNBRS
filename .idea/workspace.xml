@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="347f5466-b1ac-4eab-a87e-ec7e864bac44" name="Default" comment="25/2016">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/crontab/sendSms.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/crontab/tst.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/crontab/tst2.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+    <list default="true" id="347f5466-b1ac-4eab-a87e-ec7e864bac44" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/changepwd.php" afterPath="$PROJECT_DIR$/changepwd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/dbc.php" afterPath="$PROJECT_DIR$/config/dbc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/index.html" afterPath="$PROJECT_DIR$/config/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mainClass.php" afterPath="$PROJECT_DIR$/config/mainClass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/parm.php" afterPath="$PROJECT_DIR$/config/parm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crontab/cron.php" afterPath="$PROJECT_DIR$/crontab/cron.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crontab/users.txt" afterPath="$PROJECT_DIR$/crontab/users.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forgetpwd.php" afterPath="$PROJECT_DIR$/forgetpwd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services.php" afterPath="$PROJECT_DIR$/services.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users.php" afterPath="$PROJECT_DIR$/users.php" />
     </list>
     <ignored path="RemoteServices.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -165,7 +147,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TNB" />
+        <entry key="$PROJECT_DIR$" value="1882016Loca" />
       </map>
     </option>
   </component>
@@ -487,7 +469,7 @@
       <workItem from="1471853938263" duration="695000" />
       <workItem from="1471863302392" duration="600000" />
       <workItem from="1472115731472" duration="1041000" />
-      <workItem from="1472116957045" duration="1118000" />
+      <workItem from="1472116957045" duration="1155000" />
     </task>
     <task id="LOCAL-00001" summary="We have new ver">
       <created>1462309976863</created>
@@ -601,11 +583,18 @@
       <option name="project" value="LOCAL" />
       <updated>1471763754030</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="25/8/2016">
+      <created>1472118091524</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1472118091524</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265776000" />
+    <option name="totallyTimeSpent" value="265813000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -694,7 +683,8 @@
     <MESSAGE value="16/8/2016" />
     <MESSAGE value="18/8/2016" />
     <MESSAGE value="21/8/2016" />
-    <option name="LAST_COMMIT_MESSAGE" value="21/8/2016" />
+    <MESSAGE value="25/8/2016" />
+    <option name="LAST_COMMIT_MESSAGE" value="25/8/2016" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
