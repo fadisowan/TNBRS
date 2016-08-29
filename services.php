@@ -3,7 +3,7 @@
 
 require_once '/var/www/html/daloradius-0.9-9/RemoteServices/lib/nusoap.php';
 require_once '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
-require '/var/www/html/daloradius-0.9-9/RemoteServices/config/mainClass.php';
+require_once '/var/www/html/daloradius-0.9-9/RemoteServices/config/mainClass.php';
 
 $username = trim($_REQUEST['username']);
 
@@ -83,17 +83,21 @@ function SuspendUser($suspendName)
 
 }
 
-function resetLoginPwd($LoginUserPwd)
+function resetPwd($LoginUserPwd)
 {
     require 'config/dbc.php';
     $LoginUserPwd=mysqli_real_escape_string($conn,$LoginUserPwd);
 
     $pwd = genPass();
-
+    $pwd_tnx = genPass();
+    $tnxSuffix = $GLOBALS['tnx_'];
 
     if (isUsersexists($LoginUserPwd)) {
         $sql = "UPDATE radius.radcheck SET value = '$pwd',locked=FALSE,firstLogin=TRUE ,attempt=0 WHERE username='$LoginUserPwd';";
-        if ($conn->query($sql) === TRUE) {
+        $sql2 = "UPDATE radius.radcheck SET value = '$pwd_tnx',locked=FALSE,firstLogin=TRUE ,attempt=0  WHERE username='$tnxSuffix$LoginUserPwd'";
+
+
+        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
 
             $txnStatus = "resetLoginPwd";
             return $txnStatus;
@@ -105,28 +109,6 @@ function resetLoginPwd($LoginUserPwd)
     $conn->close();
 }
 
-function resetTnxPwd($TNXUserPwd)
-{
-    require 'config/dbc.php';
-    $TNXUserPwd=mysqli_real_escape_string($conn,$TNXUserPwd);
-
-    $pwd = genPass();
-    $tnxSuffix = $GLOBALS['tnx_'];
-
-
-    if (isUsersexists($TNXUserPwd)) {
-        $sql = "UPDATE radius.radcheck SET value = '$pwd',locked=FALSE,firstLogin=TRUE ,attempt=0  WHERE username='$tnxSuffix$TNXUserPwd'";
-        if ($conn->query($sql) === TRUE) {
-
-            $txnStatus = "resetTnxPwd";
-            return $txnStatus;
-        }
-    } else {
-        $txnStatus = 'transaction username not found!';
-        return $txnStatus;
-    }
-    $conn->close();
-}
 
 function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
 {
@@ -186,11 +168,11 @@ function ValidateLogin($ValidateLoginUSR, $ValidateLoginPWD)
 
 function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewPWD)
 {
-
+/*
     $ValidateLoginUSR=mysqli_real_escape_string($conn,$ValidateLoginUSR);
-    $ValidateLoginPWD=mysqli_real_escape_string($conn,$ValidateLoginPWD);
-    $ValidateLoginnewPWD=mysqli_real_escape_string($conn,$ValidateLoginnewPWD);
 
+    $ValidateLoginnewPWD=mysqli_real_escape_string($conn,$ValidateLoginnewPWD);
+*/
 
     if (!isUsersexists($ValidateLoginUSR)) {
         $txnStatus = "username not found! to Change Password";
@@ -205,7 +187,12 @@ function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewP
 
             $rs = mysqli_query($conn, $sqlLogin);
             $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+
+
             if ($data[0] > 1) {
+                $ValidateLoginUSR=mysqli_real_escape_string($conn,$ValidateLoginUSR);
+
+                $ValidateLoginnewPWD=mysqli_real_escape_string($conn,$ValidateLoginnewPWD);
 // UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD'  WHERE username='$ValidateLoginUSR';
                 $sql = "UPDATE radius.radcheck SET value = '$ValidateLoginnewPWD', firstLogin=FALSE  WHERE username='$ValidateLoginUSR';";
                 if ($conn->query($sql) === TRUE) {
@@ -228,20 +215,19 @@ function ChangePassword($ValidateLoginUSR, $ValidateLoginPWD, $ValidateLoginnewP
 
 function ForgetPassword($forgetusername)
 {
-
-
     if (!isUsersexists($forgetusername)) {
         $txnStatus = 'username not found! to reset password';
         return $txnStatus;
     } else {
         require 'config/dbc.php';
 
-        $forgetusername=mysqli_real_escape_string($conn,$forgetusername);
+       // $forgetusername=mysqli_real_escape_string($conn,$forgetusername);
         $pwd = genPass();
         $sql = "UPDATE radius.radcheck SET value = '$pwd',firstLogin = TRUE ,locked=FALSE,attempt=0 WHERE username='$forgetusername';";
         if ($conn->query($sql) === TRUE) {
             $mobile = GetMobile($forgetusername);
             $msg = "TNBank, $forgetusername NEW Password: $pwd";
+
             SendSMS(trim($mobile), urlencode($msg));
             $txnStatus = "Password reset";
             return $txnStatus;
@@ -261,11 +247,10 @@ $server = new soap_server();
 $server->configureWSDL("TNB Bank Web Serives | Integrated Solutions ", "urn:Radius");
 $server->register('CreateUser', array("usernameCreate" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#CreateUser");
 $server->register('SuspendUser', array("suspendName" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#SuspendUser");
-$server->register('resetLoginPwd', array("LoginPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetLoginPwd");
-$server->register('resetTnxPwd', array("TNXUserPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetTnxPwd");
+$server->register('resetPwd', array("LoginUserPwd" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#resetPwd");
 $server->register('ValidateLogin', array("ValidateLogin" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ValidateLogin");
 $server->register('ChangePassword', array("ChangePassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ChangePassword");
-$server->register('ForgetPassword', array("ForgetPassword" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ForgetPassword");
+$server->register('ForgetPassword', array("forgetusername" => "xsd:string"), array("return" => "xsd:string"), "urn:Radius", "urn:Radius#ForgetPassword");
 
 
 $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';

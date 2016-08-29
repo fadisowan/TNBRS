@@ -6,31 +6,14 @@
  * Time: 1:08 PM
  */
 /*ini_set('dispaly_errors',1);*/
+function SendSMS($to, $msg ) {
+    $uri = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$to&text=$msg";
 
-function SendSMS($username)
-{
-    require '/var/www/html/daloradius-0.9-9/RemoteServices/config/dbc.php';
-
-    $MOBILE = GetMobile($username);
-    $pass = GetPass($username);
-
-    $msg = "TNBank NEW Password " . '"' . $pass . '"' . '<br>';
-
-    echo $msg;
-
-
-    $URL = "http://91.240.148.34:13013/cgi-bin/sendsms?username=playsms&password=playsms&to=$pass&text=$pass";
-    // echo $URL."<br>";
-
-    /*
     $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-    $output = curl_exec($ch);
-    var_dump($output);
+    curl_setopt( $ch, CURLOPT_URL, $uri );
+    $output= curl_exec( $ch );
     curl_close($ch);
-*/
-
+    return $output;
 
 }
 function AddPickedUsers($username, $mobile)

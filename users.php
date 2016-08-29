@@ -5,10 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//action
-//------------- Main IF POST-------------------------------------------------
 require_once '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
-
 isset($_GET['username']) ? $userNamePost = trim(strip_tags($_GET['username'])) : $userNamePost = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
 isset($_GET['action']) ? $action =  trim(strip_tags($_GET['action'])) : $action = "";
@@ -34,17 +31,14 @@ switch ($action){
 
         break;
 
-    case "resetLoginPwd":
-        $result=$client->call("resetLoginPwd", array("LoginPwd"=>"$userNamePost"));
+    case "resetPwd":
+        $result=$client->call("resetPwd", array("LoginPwd"=>"$userNamePost"));
 
         break;
 
 
 
-    case "resetTnxPwd":
-        $result=$client->call("resetTnxPwd", array("TNXUserPwd"=>"$userNamePost"));
 
-        break;
     default:
         echo "<pre> please select correct operation </pre>";
         break;
@@ -70,15 +64,13 @@ switch ($action){
         } elseif($result=='suspend') {
             echo "<pre>User suspend : $userNamePost  </pre>";
         } elseif($result=='resetLoginPwd') {
-            echo "<pre>Login Password reset successfully : $userNamePost </pre>";
-        } elseif($result=='resetTnxPwd') {
-            echo "<pre>transaction Password reset successfully : $userNamePost </pre>";
+            echo "<pre> Password reset successfully : $userNamePost </pre>";
+
 
 
     } else{
             echo "<pre>$result $userNamePost   </pre>";
         }
     }
-//------------- ENDIF FALUT-------------------------------------------------
 
-}//end for POST
+}
