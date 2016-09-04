@@ -8,67 +8,62 @@
 require_once '/var/www/html/daloradius-0.9-9/RemoteServices/config/parm.php';
 isset($_GET['username']) ? $userNamePost = trim(strip_tags($_GET['username'])) : $userNamePost = "";
 //isset($_GET['password']) ?$passwordPost =  $_GET['password'] : $password = "";
-isset($_GET['action']) ? $action =  trim(strip_tags($_GET['action'])) : $action = "";
+isset($_GET['action']) ? $action = trim(strip_tags($_GET['action'])) : $action = "";
 
-if(isset($userNamePost) && isset($action) ){
-    if(!empty($userNamePost)&&!empty($action)){
+if (isset($userNamePost) && isset($action)) {
+    if (!empty($userNamePost) && !empty($action)) {
 //-------------------------------------------------------------------------
-        require_once  ('lib/nusoap.php');
-        $client=new nusoap_client($GLOBALS['WSDL']);
+        require_once('lib/nusoap.php');
+        $client = new nusoap_client($GLOBALS['WSDL']);
         $error = $client->getError();
         if ($error) {
             echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
         }
 //-------------------------------------------------------------------------
 
-switch ($action){
-    case "create":
-        $result=$client->call("CreateUser", array("usernameCreate"=>"$userNamePost"));
-        break;
-    case "suspend":
+        switch ($action) {
+            case "create":
+                $result = $client->call("CreateUser", array("usernameCreate" => "$userNamePost"));
+                break;
+            case "suspend":
 
-        $result=$client->call("SuspendUser", array("suspendName"=>"$userNamePost"));
+                $result = $client->call("SuspendUser", array("suspendName" => "$userNamePost"));
 
-        break;
+                break;
 
-    case "resetPwd":
-        $result=$client->call("resetPwd", array("LoginPwd"=>"$userNamePost"));
+            case "resetPwd":
+                $result = $client->call("resetPwd", array("LoginPwd" => "$userNamePost"));
 
-        break;
-
-
+                break;
 
 
-    default:
-        echo "<pre> please select correct operation </pre>";
-        break;
-}
+            default:
+                echo "<pre> please select correct operation </pre>";
+                break;
+        }
 
-    }else{
+    } else {
         echo "<pre>username can't be null or empty!</pre>";
     }
 //------------- IF FALUT-------------------------------------------------
-    $par='01';
+    $par = '01';
     if ($client->fault) {
         echo "<h2>Fault</h2><pre>";
         print_r($result);
         echo "</pre>";
-    }
-    else {
+    } else {
         $error = $client->getError();
         if ($error) {
             echo "<h2>Error</h2><pre>" . $error . "</pre>";
-        }
-        elseif($result=='create') {
+        } elseif ($result == 'create') {
             echo "<pre>New User Created : $userNamePost </pre>";
-        } elseif($result=='suspend') {
+        } elseif ($result == 'suspend') {
             echo "<pre>User suspend : $userNamePost  </pre>";
-        } elseif($result=='resetLoginPwd') {
+        } elseif ($result == 'resetLoginPwd') {
             echo "<pre> Password reset successfully : $userNamePost </pre>";
 
 
-
-    } else{
+        } else {
             echo "<pre>$result $userNamePost   </pre>";
         }
     }

@@ -8,7 +8,7 @@
 
 $GLOBALS['WSDL']="http://192.168.160.132/RemoteServices/services.php?wsdl";
 //GLOBALS['WSDL']="http://192.168.160.132/fadi2/services.php?wsdl";
-$GLOBALS['tnx_']='tnx_';
+$GLOBALS['tnx_']='-1';
 
 
 

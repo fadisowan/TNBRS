@@ -192,6 +192,14 @@ function isFirstTime($username)
     }
     return $rslt;
 }
+function SendEmail($email,$msg){
+    $to =$email;
+    $subject = "TNBANK Password";
+    $txt = $msg;
+
+    $headers = "From: info@tnb.ps" . "\r\n" ;
+    mail($to,$subject,$txt,$headers);
+}
 
 
 

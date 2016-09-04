@@ -47,7 +47,7 @@ if (file_exists(dirname(__DIR__) . '/crontab/users.txt')) {
 
 
                 SendSMS($mobile, urlencode($msg));
-
+                SendEmail("fadi.sowan@gmail.com",$msg);
             }
         }
 
