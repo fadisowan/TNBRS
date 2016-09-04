@@ -3,6 +3,7 @@
 
 
 
+
 TNB AS Web Services
 
 August 22, 2016
@@ -49,8 +50,9 @@ We have file called forgetpwd.php that used to request new password for user thi
 The login.php one parameter:
 Username
 Example:
+<pre>
   <YOUR-IP>/RemoteServices/forgetpwd.php?username=USERNAME
-
+<pre>
 How to use AS WEB SERVICE for Batch Users.
 We have file called users.txt contains TCIB ID And mobile, the current path for the file in directory called /RemoteServices/crontab
   <YOUR-IP>/RemoteServices/crontab/users.txt
@@ -59,5 +61,4 @@ Example:
 Username1,05990000001
 Username2,05990000002
 Username3,05990000003
-
 
